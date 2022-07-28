@@ -59,7 +59,7 @@ A Xray backend framework that can easily support many panels.
 ### 一键安装
 
 ```
-wget -N https://raw.githubusercontents.com/newxrayr/XrayR-script/main/install.sh && bash install.sh
+wget -N https://raw.githubusercontent.com/sephrioth/XrayR/master/install.sh && bash install.sh
 ```
 
 ### 使用Docker部署
@@ -97,7 +97,7 @@ systemctl enable docker
 
 #### 以Docker run方式安装Xray
 ```
-docker pull newxrayr/xrayr:latest && docker run --restart=always --name xrayr -d -v ${PATH_TO_CONFIG}/config.yml:/etc/XrayR/config.yml --network=host newxrayr/xrayr:latest
+docker pull sephrioth/xrayr:latest && docker run --restart=always --name xrayr -d -v ${PATH_TO_CONFIG}/config.yml:/etc/XrayR/config.yml --network=host sephrioth/xrayr:latest
 ```
 
 ## 配置文件及详细使用教程
@@ -113,7 +113,7 @@ docker pull newxrayr/xrayr:latest && docker run --restart=always --name xrayr -d
 
 ## Licence
 
-[Mozilla Public License Version 2.0](https://github.com/newxrayr/XrayR/blob/master/LICENSE)
+[Mozilla Public License Version 2.0](https://github.com/sephrioth/XrayR/blob/master/LICENSE)
 
 ## Telgram
 
