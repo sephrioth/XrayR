@@ -97,7 +97,7 @@ systemctl enable docker
 
 #### 以Docker run方式安装Xray
 ```
-docker pull sephrioth/xrayr:latest && docker run --restart=always --name xrayr -d -v ${PATH_TO_CONFIG}/config.yml:/etc/XrayR/config.yml --network=host sephrioth/xrayr:latest
+docker pull crackair/xrayr:latest && docker run --restart=always --name xrayr -d -v ${PATH_TO_CONFIG}/config.yml:/etc/XrayR/config.yml --network=host crackair/xrayr:latest
 ```
 
 ## 配置文件及详细使用教程
