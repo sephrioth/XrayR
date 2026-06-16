@@ -141,8 +141,19 @@ install_XrayR() {
     systemctl stop XrayR
     systemctl enable XrayR
     echo -e "${green}XrayR ${last_version}${plain} 安装完成，已设置开机自启"
-    cp geoip.dat /etc/XrayR/
-    cp geosite.dat /etc/XrayR/ 
+    echo -e "${green}更新 geoip.dat / geosite.dat ...${plain}"    
+
+    if ! curl -L --fail --connect-timeout 20 -o /etc/XrayR/geoip.dat \
+      https://github.com/v2fly/geoip/releases/latest/download/geoip.dat; then
+      echo -e "${yellow}下载最新 geoip.dat 失败，使用 XrayR release 内置版本${plain}"
+      cp geoip.dat /etc/XrayR/
+    fi    
+
+    if ! curl -L --fail --connect-timeout 20 -o /etc/XrayR/geosite.dat \
+      https://github.com/v2fly/domain-list-community/releases/latest/download/dlc.dat; then
+      echo -e "${yellow}下载最新 geosite.dat 失败，使用 XrayR release 内置版本${plain}"
+      cp geosite.dat /etc/XrayR/
+    fi
 
     if [[ ! -f /etc/XrayR/config.yml ]]; then
         cp config.yml /etc/XrayR/
