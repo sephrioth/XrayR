@@ -246,6 +246,7 @@ show_log() {
 
 install_bbr() {
     bash <(curl -L -s https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh)
+    before_show_menu
 }
 
 update_shell() {
