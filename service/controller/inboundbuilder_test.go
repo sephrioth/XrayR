@@ -3,8 +3,9 @@ package controller_test
 import (
 	"testing"
 
-	"github.com/newxrayr/XrayR/api"
-	. "github.com/newxrayr/XrayR/service/controller"
+	"github.com/XrayR-project/XrayR/api"
+	"github.com/XrayR-project/XrayR/common/mylego"
+	. "github.com/XrayR-project/XrayR/service/controller"
 )
 
 func TestBuildV2ray(t *testing.T) {
@@ -18,9 +19,8 @@ func TestBuildV2ray(t *testing.T) {
 		Host:              "test.test.tk",
 		Path:              "v2ray",
 		EnableTLS:         false,
-		TLSType:           "tls",
 	}
-	certConfig := &CertConfig{
+	certConfig := &mylego.CertConfig{
 		CertMode:   "http",
 		CertDomain: "test.test.tk",
 		Provider:   "alidns",
@@ -29,7 +29,7 @@ func TestBuildV2ray(t *testing.T) {
 	config := &Config{
 		CertConfig: certConfig,
 	}
-	_, err := InboundBuilder(config, nodeInfo)
+	_, err := InboundBuilder(config, nodeInfo, "test_tag")
 	if err != nil {
 		t.Error(err)
 	}
@@ -46,12 +46,11 @@ func TestBuildTrojan(t *testing.T) {
 		Host:              "trojan.test.tk",
 		Path:              "v2ray",
 		EnableTLS:         false,
-		TLSType:           "tls",
 	}
 	DNSEnv := make(map[string]string)
 	DNSEnv["ALICLOUD_ACCESS_KEY"] = "aaa"
 	DNSEnv["ALICLOUD_SECRET_KEY"] = "bbb"
-	certConfig := &CertConfig{
+	certConfig := &mylego.CertConfig{
 		CertMode:   "dns",
 		CertDomain: "trojan.test.tk",
 		Provider:   "alidns",
@@ -61,7 +60,7 @@ func TestBuildTrojan(t *testing.T) {
 	config := &Config{
 		CertConfig: certConfig,
 	}
-	_, err := InboundBuilder(config, nodeInfo)
+	_, err := InboundBuilder(config, nodeInfo, "test_tag")
 	if err != nil {
 		t.Error(err)
 	}
@@ -78,12 +77,11 @@ func TestBuildSS(t *testing.T) {
 		Host:              "test.test.tk",
 		Path:              "v2ray",
 		EnableTLS:         false,
-		TLSType:           "tls",
 	}
 	DNSEnv := make(map[string]string)
 	DNSEnv["ALICLOUD_ACCESS_KEY"] = "aaa"
 	DNSEnv["ALICLOUD_SECRET_KEY"] = "bbb"
-	certConfig := &CertConfig{
+	certConfig := &mylego.CertConfig{
 		CertMode:   "dns",
 		CertDomain: "trojan.test.tk",
 		Provider:   "alidns",
@@ -93,7 +91,7 @@ func TestBuildSS(t *testing.T) {
 	config := &Config{
 		CertConfig: certConfig,
 	}
-	_, err := InboundBuilder(config, nodeInfo)
+	_, err := InboundBuilder(config, nodeInfo, "test_tag")
 	if err != nil {
 		t.Error(err)
 	}

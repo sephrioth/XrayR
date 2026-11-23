@@ -1,6 +1,6 @@
 package panel
 
-import "github.com/newxrayr/XrayR/service/controller"
+import "github.com/XrayR-project/XrayR/service/controller"
 
 func getDefaultLogConfig() *LogConfig {
 	return &LogConfig{
@@ -10,8 +10,8 @@ func getDefaultLogConfig() *LogConfig {
 	}
 }
 
-func getDefaultConnetionConfig() *ConnetionConfig {
-	return &ConnetionConfig{
+func getDefaultConnectionConfig() *ConnectionConfig {
+	return &ConnectionConfig{
 		Handshake:    4,
 		ConnIdle:     30,
 		UplinkOnly:   2,
